@@ -39,18 +39,14 @@ public class PlaneService {
     }
 
     public void Task5(Plane planeFirst, Plane planeSecond, Plane planeThird) {
-        if (planeFirst.getSeats() < planeSecond.getSeats() &&
-                planeFirst.getSeats() < planeThird.getSeats()) {
+        if (planeFirst.getSeats() <= planeSecond.getSeats() &&
+                planeFirst.getSeats() <= planeThird.getSeats()) {
             System.out.println(planeFirst.getCountry());
         } else if (planeSecond.getSeats() < planeFirst.getSeats() &&
                 planeSecond.getSeats() < planeThird.getSeats()) {
             System.out.println(planeSecond.getCountry());
-        } else if (planeThird.getSeats() < planeFirst.getSeats() &&
-                planeThird.getSeats() < planeSecond.getSeats()) {
+        } else {
             System.out.println(planeThird.getCountry());
-        } else if (planeFirst.getSeats() == planeSecond.getSeats() &&
-                planeSecond.getSeats() == planeThird.getSeats()) {
-            System.out.println(planeFirst.getCountry());
         }
     }
 
@@ -69,10 +65,10 @@ public class PlaneService {
             if (militaryPlane == null) {
                 if (plane.isMilitary()) {
                     militaryPlane = plane;
-                } else if (plane.isMilitary() && plane.getHours() > 100) {
-                    militaryPlane = plane;
-                    Task1(militaryPlane);
                 }
+            } else if (plane.isMilitary() && plane.getHours() > 100) {
+                militaryPlane = plane;
+                Task1(militaryPlane);
             }
         }
         if (militaryPlane == null) {
@@ -94,7 +90,9 @@ public class PlaneService {
         Plane militaryPlaneMinCost = null;
         for (Plane plane : planes) {
             if (militaryPlaneMinCost == null) {
-                militaryPlaneMinCost = plane;
+                if (plane.isMilitary()) {
+                    militaryPlaneMinCost = plane;
+                }
             } else if (plane.isMilitary() && plane.getCost() < militaryPlaneMinCost.getCost()) {
                 militaryPlaneMinCost = plane;
             }

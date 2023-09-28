@@ -1,16 +1,16 @@
 package model;
 
 public class Plane {
-    String model;
-    String country;
-    int year;
-    int hours;
-    boolean isMilitary;
-    int weight;
-    int wingspan;
-    int topSpeed;
-    int seats;
-    double cost;
+    private String model;
+    private String country;
+    private int year = 2021;
+    private int hours = 10000;
+    private boolean isMilitary;
+    private int weight = 160000;
+    private int wingspan = 45;
+    private int topSpeed = 1000;
+    private int seats;
+    private double cost;
 
     public Plane() {
     }
