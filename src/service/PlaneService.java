@@ -2,7 +2,7 @@ package service;
 
 import model.Plane;
 
-public class PlaneService {
+public class PlaneService implements PlaneServiceInterface {
     public void Task1(Plane plane) {
         System.out.println("Model: " + plane.getModel());
         System.out.println("Country: " + plane.getCountry());
